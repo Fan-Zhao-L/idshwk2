@@ -1,1 +1,2 @@
-
+alert tcp any any -> any 3399 (pcre:"/Login|Initial/i";flowbits:set,inlog;flowbits:noalert)
+alert tcp any any -> any 3399 (msg:"bot founded";pcre:"/[0-255].[0-255].[0-255].[0-255]:[0-65525]/i";flowbits:isset,inlog;sid:1000001)
